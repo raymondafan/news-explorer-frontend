@@ -4,6 +4,7 @@
   font-size: 18px;
   margin: 0;
   padding: 32px 0 80px;
+  font-weight: 400;
 }
 .searchForm__container {
   display: flex;
@@ -20,6 +21,7 @@
   font-size: 60px;
   font-family: "roboto-slab-400-regular";
   color: #ffffff;
+  font-weight: 400;
 }
 .searchForm__input {
   padding: 22px 21px;

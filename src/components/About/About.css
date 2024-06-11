@@ -1,0 +1,26 @@
+.about__image {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 80px 0 0 104px;
+}
+.about {
+  display: flex;
+  height: 624px;
+}
+.about__content {
+  padding: 0 0 0 56px;
+}
+.about__title {
+  margin: 0;
+  padding: 131px 0 24px;
+  font-family: "roboto-slab-400-regular";
+  font-size: 40px;
+}
+.about__description {
+  margin: 0;
+  padding: 0 216px 300px 0;
+  font-family: "roboto-400-regular";
+  font-size: 18px;
+}

@@ -4,10 +4,8 @@ import Main from "../Main/Main";
 function App() {
   return (
     <div className="page">
-      <div className="page__content">
-        <Header />
-        <Main />
-      </div>
+      <Header />
+      <Main />
     </div>
   );
 }

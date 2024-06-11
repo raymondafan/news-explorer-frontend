@@ -9,8 +9,13 @@ const SearchForm = ({}) => {
           account.
         </p>
         <div className="searchForm__bar">
-          <input type="text" className="searchForm__input" />
-        </div>{" "}
+          <input
+            type="text"
+            className="searchForm__input"
+            id="search"
+            placeholder="Enter topic"
+          />
+        </div>
         <button className="searchForm__button" type="submit">
           Search
         </button>

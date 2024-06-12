@@ -1,4 +1,4 @@
-import aboutImage from "../../assets/bex.svg";
+import aboutImage from "../../assets/raymond.svg";
 import "./About.css";
 const About = ({}) => {
   return (

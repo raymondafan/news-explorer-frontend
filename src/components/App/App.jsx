@@ -4,12 +4,16 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SigninModal from "../SigninModal/SigninModal";
 import { useEffect, useState } from "react";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
 
   const handleSigninModal = () => {
     setActiveModal("signin");
+  };
+  const handleRegisterModal = () => {
+    setActiveModal("signup");
   };
   const handleCloseModal = () => {
     setActiveModal(""); //empty string bc we wanna go back to initial state (useState("")) so nothing appears after clicked
@@ -47,6 +51,17 @@ function App() {
           isOpen={true}
           handleSigninModal={handleSigninModal}
           onClose={handleCloseModal}
+          onSecondButtonClick={handleRegisterModal}
+          activeModal={activeModal}
+        />
+      )}
+      {activeModal === "signup" && (
+        <RegisterModal
+          isOpen={true}
+          handleRegisterModal={handleRegisterModal}
+          onClose={handleCloseModal}
+          onSecondButtonClick={handleSigninModal}
+          activeModal={activeModal}
         />
       )}
     </div>

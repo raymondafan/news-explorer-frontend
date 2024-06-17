@@ -30,16 +30,19 @@ const ModalWithForm = ({
             >
               {buttonText}
             </button>
-            {secondButtonText && (
-              <button
-                type="button"
-                className="modal__button-register"
-                onClick={onSecondButtonClick}
-                disabled={isLoading}
-              >
-                {secondButtonText}
-              </button>
-            )}
+            <div className="modal__button-wrapper">
+              <div className="modal__button-text">or</div>
+              {secondButtonText && (
+                <button
+                  type="button"
+                  className="modal__button-switch"
+                  onClick={onSecondButtonClick}
+                  disabled={isLoading}
+                >
+                  {secondButtonText}
+                </button>
+              )}
+            </div>
           </div>
         </form>
       </div>

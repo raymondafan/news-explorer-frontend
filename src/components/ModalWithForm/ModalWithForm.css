@@ -49,11 +49,12 @@
 .modal__title {
   margin: 0;
   font-family: "roboto-900";
+  padding: 0 0 22px;
 }
 .modal__label {
   display: flex;
   flex-direction: column;
-  padding: 22px 0 0;
+  padding: 0 0 30px;
   color: #2f71e5;
   font-family: "inter-400-regular";
   font-size: 12px;
@@ -67,10 +68,10 @@
   font-family: "inter-400-regular";
   font-size: 14px;
 }
-.modal__bottomlabel {
+.modal__label-bottom {
   display: flex;
   flex-direction: column;
-  padding: 31px 0 39px;
+  padding: 0 0 39px;
   color: #2f71e5;
   font-family: "inter-400-regular";
   font-size: 12px;
@@ -94,8 +95,7 @@
   display: flex;
   flex-direction: column;
 }
-.modal__button-register {
-  margin: 16px 0 0;
+.modal__button-switch {
   border: none;
   background: none;
   cursor: pointer;
@@ -104,7 +104,19 @@
   font-size: 14px;
   opacity: 100%;
   transition: 0.25s ease-in-out;
+  padding: 0;
 }
-.modal__button-register:hover {
+.modal__button-switch:hover {
   opacity: 60%;
+}
+.modal__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 0;
+  gap: 5px;
+}
+
+.modal__button-text {
+  font-family: "inter-400-regular";
+  font-size: 14px;
 }

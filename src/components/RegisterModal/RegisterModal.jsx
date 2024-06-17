@@ -1,3 +1,4 @@
+import "./RegisterModal.css";
 import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
@@ -42,14 +43,14 @@ const RegisterModal = ({
       isOpen={isOpen}
       activeModal={activeModal}
       onSecondButtonClick={onSecondButtonClick}
-      secondButtonText={activeModal === "signup" ? "or Login" : "or Register"}
+      secondButtonText={activeModal === "signup" ? "  Sign In" : "  Sign Up"}
     >
       <label className="modal__label">
         Email
         <input
           className="modal__input"
           type="email"
-          placeholder="Email"
+          placeholder="Enter email"
           name="email"
           value={email}
           onChange={handleEmail}
@@ -60,7 +61,7 @@ const RegisterModal = ({
         <input
           className="modal__input"
           type="password"
-          placeholder="Password"
+          placeholder="Enter password"
           name="Password"
           value={password}
           onChange={handlePassword}
@@ -68,7 +69,7 @@ const RegisterModal = ({
           maxLength="30"
         />
       </label>
-      <label className="modal__bottomlabel">
+      <label className="modal__label-bottom">
         Username
         <input
           className="modal__input"

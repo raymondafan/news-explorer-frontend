@@ -40,25 +40,25 @@ const SigninModal = ({
       onSubmitButtonClick={onSubmitButtonClick}
       onSecondButtonClick={onSecondButtonClick}
       activeModal={activeModal}
-      secondButtonText={activeModal === "signup" ? "or Sign In" : "or Sign Up"}
+      secondButtonText={activeModal === "signup" ? "  Sign In" : "  Sign Up"}
     >
       <label className="modal__label">
         Email
         <input
           className="modal__input"
           type="email"
-          placeholder="Enter Email"
+          placeholder="Enter email"
           name="email"
           value={email}
           onChange={handleEmail}
         />
       </label>
-      <label className="modal__bottomlabel">
+      <label className="modal__label-bottom">
         Password
         <input
           className="modal__input"
           type="password"
-          placeholder="Password"
+          placeholder="Enter password"
           name="Password"
           value={password}
           onChange={handlePassword}

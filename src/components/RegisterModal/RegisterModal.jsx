@@ -26,8 +26,8 @@ const RegisterModal = ({
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-  const handleName = (e) => {
-    setName(e.target.value);
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ const RegisterModal = ({
           placeholder="Enter your username"
           name="username"
           value={username}
-          onChange={handleName}
+          onChange={handleUsername}
         />
       </label>
     </ModalWithForm>

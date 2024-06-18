@@ -16,7 +16,7 @@ function App() {
     setActiveModal("signup");
   };
   const handleCloseModal = () => {
-    setActiveModal(""); //empty string bc we wanna go back to initial state (useState("")) so nothing appears after clicked
+    setActiveModal("");
   };
   const handleEscKey = (e) => {
     if (e.key === "Escape") {

@@ -43,27 +43,29 @@ function App() {
   console.log(`Active modal: ${activeModal}`);
   return (
     <div className="page">
-      <Header onSigninModal={handleSigninModal} />
-      <Main />
-      <Footer />
-      {activeModal === "signin" && (
-        <SigninModal
-          isOpen={true}
-          handleSigninModal={handleSigninModal}
-          onClose={handleCloseModal}
-          onSecondButtonClick={handleRegisterModal}
-          activeModal={activeModal}
-        />
-      )}
-      {activeModal === "signup" && (
-        <RegisterModal
-          isOpen={true}
-          handleRegisterModal={handleRegisterModal}
-          onClose={handleCloseModal}
-          onSecondButtonClick={handleSigninModal}
-          activeModal={activeModal}
-        />
-      )}
+      <div className="page__content">
+        <Header onSigninModal={handleSigninModal} />
+        <Main />
+        <Footer />
+        {activeModal === "signin" && (
+          <SigninModal
+            isOpen={true}
+            handleSigninModal={handleSigninModal}
+            onClose={handleCloseModal}
+            onSecondButtonClick={handleRegisterModal}
+            activeModal={activeModal}
+          />
+        )}
+        {activeModal === "signup" && (
+          <RegisterModal
+            isOpen={true}
+            handleRegisterModal={handleRegisterModal}
+            onClose={handleCloseModal}
+            onSecondButtonClick={handleSigninModal}
+            activeModal={activeModal}
+          />
+        )}
+      </div>
     </div>
   );
 }

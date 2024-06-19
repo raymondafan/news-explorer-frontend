@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SigninModal from "../SigninModal/SigninModal";
-import { useEffect, useState } from "react";
+
 import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
@@ -43,29 +45,30 @@ function App() {
   console.log(`Active modal: ${activeModal}`);
   return (
     <div className="page">
-      <div className="page__content">
-        <Header onSigninModal={handleSigninModal} />
-        <Main />
-        <Footer />
-        {activeModal === "signin" && (
-          <SigninModal
-            isOpen={true}
-            handleSigninModal={handleSigninModal}
-            onClose={handleCloseModal}
-            onSecondButtonClick={handleRegisterModal}
-            activeModal={activeModal}
-          />
-        )}
-        {activeModal === "signup" && (
-          <RegisterModal
-            isOpen={true}
-            handleRegisterModal={handleRegisterModal}
-            onClose={handleCloseModal}
-            onSecondButtonClick={handleSigninModal}
-            activeModal={activeModal}
-          />
-        )}
-      </div>
+      <Header onSigninModal={handleSigninModal} />
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+
+      <Footer />
+      {activeModal === "signin" && (
+        <SigninModal
+          isOpen={true}
+          handleSigninModal={handleSigninModal}
+          onClose={handleCloseModal}
+          onSecondButtonClick={handleRegisterModal}
+          activeModal={activeModal}
+        />
+      )}
+      {activeModal === "signup" && (
+        <RegisterModal
+          isOpen={true}
+          handleRegisterModal={handleRegisterModal}
+          onClose={handleCloseModal}
+          onSecondButtonClick={handleSigninModal}
+          activeModal={activeModal}
+        />
+      )}
     </div>
   );
 }

@@ -5,3 +5,47 @@
   background-position: center;
   background-size: cover;
 }
+.header__nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 19px 104px 13px 104px;
+  border-bottom: 1px solid rgba(246, 244, 244, 0.7);
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "roboto-slab-700";
+  font-size: 20px;
+  color: #ffffff;
+}
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+.header__button-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 100px;
+  padding: 12px;
+  width: 152px;
+  font-family: "roboto-500";
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.header__button-home {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: "roboto-500";
+  color: #ffffff;
+}
+/* margin: 0 auto;
+background-image: url(../../assets/headerbackground.svg);
+height: 576px;
+background-position: center;
+background-size: cover; */

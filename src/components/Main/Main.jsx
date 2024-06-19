@@ -1,4 +1,6 @@
 import About from "../About/About";
+import Header from "../Header/Header";
+import SearchForm from "../SearchForm/SearchForm";
 
 const Main = ({}) => {
   return (

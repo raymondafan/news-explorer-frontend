@@ -10,13 +10,13 @@
   background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  transition: visibility 0.5s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal_open {
   visibility: visible;
   opacity: 1;
-  transition-delay: 0s;
+  transition: visibility delay 0.5s linear 0.5s, opacity 0.5s linear;
 }
 .modal__close-button {
   background: transparent url(/src/assets/closebutton.svg);

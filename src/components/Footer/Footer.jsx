@@ -1,5 +1,6 @@
 import facebookLink from "../../assets/fb.svg";
 import githubLink from "../../assets/github.svg";
+import { NavLink } from "react-router-dom";
 import "./Footer.css";
 const Footer = ({}) => {
   return (
@@ -9,7 +10,9 @@ const Footer = ({}) => {
           © {new Date().getFullYear()} Supersite, Powered by News API
         </p>
         <ul className="footer__links">
-          <li className="footer__link-home">Home</li>
+          <NavLink to="/" className="footer__link-home">
+            Home
+          </NavLink>
           <li className="footer__link-tripleTen">TripleTen</li>
           <li className="footer__link-github">
             <img

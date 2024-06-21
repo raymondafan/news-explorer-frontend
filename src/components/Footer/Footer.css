@@ -26,6 +26,8 @@
   font-family: "roboto-400-regular";
   font-size: 18px;
   font-weight: 400;
+  text-decoration: none;
+  color: black;
 }
 .footer__link-tripleTen {
   cursor: pointer;

@@ -10,7 +10,8 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const handleSigninModal = () => {
     setActiveModal("signin");
   };
@@ -45,9 +46,9 @@ function App() {
   console.log(`Active modal: ${activeModal}`);
   return (
     <div className="page">
-      <Header onSigninModal={handleSigninModal} />
+      <Header onSigninModal={handleSigninModal} isLoggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main isLoading={isLoading} />} />
       </Routes>
 
       <Footer />

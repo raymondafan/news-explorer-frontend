@@ -1,3 +1,4 @@
+import Preloader from "../Preloader/Preloader";
 import "./SearchForm.css";
 const SearchForm = ({}) => {
   return (
@@ -15,10 +16,10 @@ const SearchForm = ({}) => {
             id="search"
             placeholder="Enter topic"
           />
+          <button className="searchForm__button" type="submit">
+            Search
+          </button>
         </div>
-        <button className="searchForm__button" type="submit">
-          Search
-        </button>
       </section>
     </form>
   );

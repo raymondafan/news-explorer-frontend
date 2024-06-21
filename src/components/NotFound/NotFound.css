@@ -1,0 +1,30 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f6f7;
+  text-align: center;
+}
+.notFound__image {
+  height: 74px;
+  width: 74px;
+  margin: 86px 0 0;
+}
+.notFound__text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.notFound__text {
+  margin: 31.5px 0 0;
+  font-family: "roboto-slab-400-regular";
+  font-size: 26px;
+  font-weight: 400;
+}
+.notFound__subText {
+  margin: 16px 0 80px;
+  font-family: "roboto-400-regular";
+  font-size: 18px;
+  font-weight: 400;
+  color: #b6bcbf;
+}

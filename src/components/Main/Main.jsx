@@ -2,13 +2,12 @@ import About from "../About/About";
 import Header from "../Header/Header";
 import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader";
-import SearchForm from "../SearchForm/SearchForm";
 
-const Main = ({ isLoading }) => {
+const Main = ({ isLoading, isNotFound }) => {
   return (
     <main className="main">
       {!isLoading ? "" : <Preloader isLoading />}
-      <NotFound />
+      {!isNotFound ? "" : <NotFound />}
       <About />
     </main>
   );

@@ -7,11 +7,14 @@ import Footer from "../Footer/Footer";
 import SigninModal from "../SigninModal/SigninModal";
 
 import RegisterModal from "../RegisterModal/RegisterModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
   const handleSigninModal = () => {
     setActiveModal("signin");
   };
@@ -47,8 +50,20 @@ function App() {
   return (
     <div className="page">
       <Header onSigninModal={handleSigninModal} isLoggedIn={isLoggedIn} />
+
       <Routes>
-        <Route path="/" element={<Main isLoading={isLoading} />} />
+        <Route
+          path="/"
+          element={<Main isLoading={isLoading} isNotFound={isNotFound} />}
+        />
+        <Route
+          path="/saved-news"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SavedNews />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
       <Footer />

@@ -7,11 +7,15 @@ const Header = ({ onSigninModal, isLoggedIn }) => {
   return (
     <header className="header">
       <div className="header__nav-bar">
-        <div className="header__logo">NewsExplorer</div>
+        <NavLink to="/" className="header__logo">
+          NewsExplorer
+        </NavLink>
+
         <div className="header__user-container">
           <NavLink to="/" className="header__button-home">
             Home
           </NavLink>
+
           {!isLoggedIn ? (
             <button
               className="header__button-signin"
@@ -22,9 +26,10 @@ const Header = ({ onSigninModal, isLoggedIn }) => {
             </button>
           ) : (
             <div className="header__signin-container">
-              <NavLink to="/articles" className="header__saved-articles">
+              <NavLink to="/saved-news" className="header__saved-news">
                 Saved articles
               </NavLink>
+
               <button className="header__profile">
                 Raymond
                 <img

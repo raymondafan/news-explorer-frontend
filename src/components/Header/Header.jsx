@@ -1,48 +1,18 @@
-import { NavLink } from "react-router-dom";
 import "./Header.css";
-import unionIcon from "../../assets/Union.svg";
 import SearchForm from "../SearchForm/SearchForm";
+import Navigation from "../Navigation/Navigation";
 
-const Header = ({ onSigninModal, isLoggedIn }) => {
+const Header = ({ onSigninModal, isLoggedIn, page }) => {
   return (
-    <header className="header">
-      <div className="header__nav-bar">
-        <NavLink to="/" className="header__logo">
-          NewsExplorer
-        </NavLink>
-
-        <div className="header__user-container">
-          <NavLink to="/" className="header__button-home">
-            Home
-          </NavLink>
-
-          {!isLoggedIn ? (
-            <button
-              className="header__button-signin"
-              type="text"
-              onClick={onSigninModal}
-            >
-              Sign in
-            </button>
-          ) : (
-            <div className="header__signin-container">
-              <NavLink to="/saved-news" className="header__saved-news">
-                Saved articles
-              </NavLink>
-
-              <button className="header__profile">
-                Raymond
-                <img
-                  src={unionIcon}
-                  alt="union"
-                  className="header__union-icon"
-                />
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-      <SearchForm />
+    <header
+      className={`header ${page === "saved-news" ? "header_saved-news" : ""}`}
+    >
+      <Navigation
+        onSigninModal={onSigninModal}
+        isLoggedIn={isLoggedIn}
+        page={page}
+      />
+      {page === "main" && <SearchForm />}
     </header>
   );
 };

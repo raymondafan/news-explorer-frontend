@@ -49,8 +49,28 @@ function App() {
   console.log(`Active modal: ${activeModal}`);
   return (
     <div className="page">
-      <Header onSigninModal={handleSigninModal} isLoggedIn={isLoggedIn} />
-
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Header
+              onSigninModal={handleSigninModal}
+              isLoggedIn={isLoggedIn}
+              page="main"
+            />
+          }
+        />
+        <Route
+          path="/saved-news"
+          element={
+            <Header
+              onSigninModal={handleSigninModal}
+              isLoggedIn={isLoggedIn}
+              page="saved-news"
+            />
+          }
+        />
+      </Routes>
       <Routes>
         <Route
           path="/"
@@ -60,7 +80,10 @@ function App() {
           path="/saved-news"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <SavedNews />
+              <SavedNews
+                isLoggedIn={isLoggedIn}
+                onSigninModal={handleSigninModal}
+              />
             </ProtectedRoute>
           }
         />

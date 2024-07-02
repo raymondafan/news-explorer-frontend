@@ -8,8 +8,7 @@
 }
 .about {
   display: flex;
-  height: 624px;
-  padding: 0 216px 0 104px;
+  padding: 0 216px 80px 104px;
 }
 .about__content {
   padding: 0 0 0 56px;

@@ -6,6 +6,10 @@
   /* position: fixed;
     width: -webkit-fill-available; */
 }
+.nav__header_saved-news {
+  border-bottom: 1px solid rgba(8, 29, 45, 0.3);
+}
+
 .nav__logo {
   display: flex;
   align-items: center;

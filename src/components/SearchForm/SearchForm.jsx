@@ -2,21 +2,21 @@ import Preloader from "../Preloader/Preloader";
 import "./SearchForm.css";
 const SearchForm = ({}) => {
   return (
-    <form className="searchForm">
-      <section className="searchForm__container">
-        <h1 className="searchForm__header">What's going on in the world?</h1>
-        <p className="searchForm__subHeader">
+    <form className="search-form">
+      <section className="search-form__container">
+        <h1 className="search-form__header">What's going on in the world?</h1>
+        <p className="search-form__subHeader">
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <div className="searchForm__bar">
+        <div className="search-form__bar">
           <input
             type="text"
-            className="searchForm__input"
+            className="search-form__input"
             id="search"
             placeholder="Enter topic"
           />
-          <button className="searchForm__button" type="submit">
+          <button className="search-form__button" type="submit">
             Search
           </button>
         </div>

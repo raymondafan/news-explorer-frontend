@@ -1,7 +1,7 @@
-.searchForm {
+.search-form {
   padding: 80px 104px 0;
 }
-.searchForm__subHeader {
+.search-form__subHeader {
   font-family: "roboto-400-regular";
   color: #ffffff;
   font-size: 18px;
@@ -9,7 +9,7 @@
   padding: 32px 0 80px;
   font-weight: 400;
 }
-.searchForm__container {
+.search-form__container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -17,7 +17,7 @@
   max-width: 608px;
   position: relative;
 }
-.searchForm__header {
+.search-form__header {
   margin: 0;
   display: flex;
   justify-content: center;
@@ -26,13 +26,14 @@
   color: #ffffff;
   font-weight: 400;
 }
-.searchForm__input {
+.search-form__input {
   padding: 22px 21px;
   width: 563px;
   border-radius: 50px;
   border: none;
+  margin-bottom: 80px;
 }
-.searchForm__button {
+.search-form__button {
   padding: 22px 56px;
   border-radius: 50px;
   border: none;

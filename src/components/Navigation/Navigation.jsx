@@ -5,7 +5,11 @@ import { NavLink } from "react-router-dom";
 const Navigation = ({ onSigninModal, isLoggedIn, page }) => {
   return (
     <nav className="nav">
-      <div className="nav__header">
+      <div
+        className={`nav__header ${
+          page === "saved-news" ? "nav__profile_saved-news" : ""
+        }`}
+      >
         <NavLink to="/" className="nav__logo">
           NewsExplorer
         </NavLink>

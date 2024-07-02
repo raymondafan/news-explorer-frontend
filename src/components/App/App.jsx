@@ -8,7 +8,7 @@ import SigninModal from "../SigninModal/SigninModal";
 
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import SavedNews from "../SavedNews/SavedNews";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -80,7 +80,7 @@ function App() {
           path="/saved-news"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <SavedNews
+              <SavedNewsHeader
                 isLoggedIn={isLoggedIn}
                 onSigninModal={handleSigninModal}
               />

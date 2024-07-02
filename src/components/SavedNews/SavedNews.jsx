@@ -1,4 +1,3 @@
-const SavedNews = () => {
-  return <div className="saved-news">sup</div>;
-};
+import "./SavedNews.css";
+const SavedNews = () => {};
 export default SavedNews;

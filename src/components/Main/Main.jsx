@@ -1,13 +1,17 @@
 import About from "../About/About";
-import Header from "../Header/Header";
+import NewsCardList from "../NewsCardList/NewsCardList";
+
 import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader";
 
-const Main = ({ isLoading, isNotFound }) => {
+const Main = ({ isLoading, isNotFound, newsCardItems }) => {
   return (
     <main className="main">
       {!isLoading ? "" : <Preloader isLoading />}
       {!isNotFound ? "" : <NotFound />}
+
+      <NewsCardList />
+
       <About />
     </main>
   );

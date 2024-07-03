@@ -5,16 +5,16 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SigninModal from "../SigninModal/SigninModal";
-
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
+  const [newsCardItems, setnewsCardItems] = useState([]);
   const handleSigninModal = () => {
     setActiveModal("signin");
   };
@@ -28,6 +28,16 @@ function App() {
     if (e.key === "Escape") {
       return handleCloseModal();
     }
+  };
+  const handleSignInModalSubmit = (user) => {
+    auth.signIn(user.email, user.password).then((data) => {
+      if (data.token) {
+        handleToken(data.token);
+        return auth.checkToken();
+      } else {
+        throw new Error("No token received");
+      }
+    });
   };
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -74,7 +84,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Main isLoading={isLoading} isNotFound={isNotFound} />}
+          element={
+            <Main
+              isLoading={isLoading}
+              isNotFound={isNotFound}
+              newsCardItems={newsCardItems}
+            />
+          }
         />
         <Route
           path="/saved-news"

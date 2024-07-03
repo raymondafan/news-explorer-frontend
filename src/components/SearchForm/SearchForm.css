@@ -43,3 +43,6 @@
   cursor: pointer;
   color: #ffffff;
 }
+.cards {
+  max-width: 35px;
+}

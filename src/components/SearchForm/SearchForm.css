@@ -1,5 +1,5 @@
 .search-form {
-  padding: 80px 104px 0;
+  padding: 80px 104px;
 }
 .search-form__subHeader {
   font-family: "roboto-400-regular";
@@ -31,7 +31,6 @@
   width: 563px;
   border-radius: 50px;
   border: none;
-  margin-bottom: 80px;
 }
 .search-form__button {
   padding: 22px 56px;

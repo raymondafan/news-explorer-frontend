@@ -2,7 +2,7 @@ import "./Navigation.css";
 import unionIcon from "../../assets/Union.svg";
 import unionIconBlack from "../../assets/unionIconBlack.svg";
 import { NavLink } from "react-router-dom";
-const Navigation = ({ onSigninModal, isLoggedIn, page }) => {
+const Navigation = ({ onSigninModal, isLoggedIn, page, onProfileLogout }) => {
   return (
     <nav className="nav">
       <div
@@ -33,6 +33,7 @@ const Navigation = ({ onSigninModal, isLoggedIn, page }) => {
                 Saved articles
               </NavLink>
               <button
+                onClick={onProfileLogout}
                 className={`nav__profile ${
                   page === "saved-news" ? "nav__profile_saved-news" : ""
                 }`}

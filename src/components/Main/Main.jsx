@@ -10,7 +10,7 @@ const Main = ({ isLoading, isNotFound, newsCardItems }) => {
       {!isLoading ? "" : <Preloader isLoading />}
       {!isNotFound ? "" : <NotFound />}
 
-      <NewsCardList />
+      <NewsCardList newsCardItems={newsCardItems} />
 
       <About />
     </main>

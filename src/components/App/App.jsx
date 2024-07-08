@@ -12,13 +12,14 @@ import { getToken } from "../../utils/token";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import auth from "../../utils/auth";
 import { handleToken, removeToken } from "../../utils/token";
+import api from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
-  const [newsCardItems, setnewsCardItems] = useState([]);
+  const [newsCardItems, setNewsCardItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [userData, setUserData] = useState({ email: "" });
   const navigate = useNavigate();
@@ -63,6 +64,16 @@ function App() {
     navigate("/");
     setIsLoggedIn(false);
   };
+  useEffect(() => {
+    api
+      .getItems()
+      .then((items) => {
+        setNewsCardItems(items);
+        handleCloseModal();
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (e.target.classList.contains("modal")) {

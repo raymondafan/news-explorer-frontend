@@ -41,7 +41,16 @@
   right: 0px;
   cursor: pointer;
   color: #ffffff;
+  transition: 0.25s ease-in-out;
+  opacity: 100%;
 }
+
+.search-form__button:hover {
+  opacity: 1;
+
+  background-color: rgba(52, 126, 255, 1);
+}
+
 .cards {
   max-width: 35px;
 }

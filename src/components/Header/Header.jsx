@@ -2,7 +2,13 @@ import "./Header.css";
 import SearchForm from "../SearchForm/SearchForm";
 import Navigation from "../Navigation/Navigation";
 
-const Header = ({ onSigninModal, isLoggedIn, page, onProfileLogout }) => {
+const Header = ({
+  onSigninModal,
+  isLoggedIn,
+  page,
+  onProfileLogout,
+  onSearch,
+}) => {
   return (
     <header
       className={`header ${page === "saved-news" ? "header_saved-news" : ""}`}
@@ -13,7 +19,7 @@ const Header = ({ onSigninModal, isLoggedIn, page, onProfileLogout }) => {
         page={page}
         onProfileLogout={onProfileLogout}
       />
-      {page === "main" && <SearchForm />}
+      {page === "main" && <SearchForm onSearch={onSearch} />}
     </header>
   );
 };

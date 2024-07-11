@@ -13,6 +13,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import auth from "../../utils/auth";
 import { handleToken, removeToken } from "../../utils/token";
 import api from "../../utils/api";
+import newsApi from "../../utils/newsApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -22,6 +23,7 @@ function App() {
   const [newsCardItems, setNewsCardItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [userData, setUserData] = useState({ email: "" });
+
   const navigate = useNavigate();
   const handleSigninModal = () => {
     setActiveModal("signin");
@@ -64,16 +66,37 @@ function App() {
     navigate("/");
     setIsLoggedIn(false);
   };
-  useEffect(() => {
-    api
-      .getItems()
-      .then((items) => {
-        setNewsCardItems(items);
-        handleCloseModal();
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const handleSearch = (query) => {
+    setIsLoading(true);
 
+    api
+      .getItems(query)
+      .then((data) => {
+        console.log("API response:", data);
+        const articles = data[0].articles;
+        if (articles.length === 0) {
+          setIsNotFound(true);
+        } else {
+          setIsNotFound(false);
+        }
+        setNewsCardItems(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
+  };
+  // useEffect(() => {
+  //   api
+  //     .getItems("latest")
+  //     .then((data) => {
+  //       setNewsCardItems(data.articles);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // });
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (e.target.classList.contains("modal")) {
@@ -104,6 +127,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 page="main"
                 onProfileLogout={handleLogOutSubmit}
+                onSearch={handleSearch}
               />
             }
           />

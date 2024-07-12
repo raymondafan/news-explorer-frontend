@@ -60,12 +60,22 @@
   font-family: "roboto-slab-400-regular";
   font-size: 26px;
   font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .news-card__description {
   margin: 0;
   font-family: "roboto-400-regular";
   font-size: 16px;
   font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .news-card__publisher {
   margin: 0;

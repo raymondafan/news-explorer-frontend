@@ -41,6 +41,7 @@
 .news-card__save-icon {
   opacity: 0.7;
   transition: opacity 0.3s ease, filter 0.3s ease;
+  padding: 8px;
 }
 
 .news-card__save-icon:hover {

@@ -10,6 +10,7 @@ const NewsCardList = ({ newsCardItems, isLoading, isNotFound }) => {
       return count + 3;
     });
   };
+  console.log(isNotFound);
   return (
     <section className="news-card-list">
       {isLoading ? (

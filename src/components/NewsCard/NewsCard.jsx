@@ -1,5 +1,5 @@
 import "./NewsCard.css";
-import saveButton from "../../assets/saveButton.svg";
+import saveButton from "../../assets/bookmark.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const NewsCard = ({ article }) => {

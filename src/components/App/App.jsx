@@ -66,26 +66,41 @@ function App() {
     navigate("/");
     setIsLoggedIn(false);
   };
+
   const handleSearch = (query) => {
     setIsLoading(true);
-
-    api
-      .getItems(query)
-      .then((data) => {
-        console.log("API response:", data);
-        const articles = data[0].articles;
+    newsApi
+      .fetchNews(query)
+      .then((articles) => {
         if (articles.length === 0) {
           setIsNotFound(true);
         } else {
           setIsNotFound(false);
         }
         setNewsCardItems(articles);
-        setIsLoading(false);
       })
       .catch((err) => {
         console.error(err);
-        setIsLoading(false);
-      });
+      })
+      .finally(() => setIsLoading(false));
+
+    // api
+    //   .getItems(query)
+    //   .then((data) => {
+    //     console.log("API response:", data);
+    //     const articles = data[0].articles;
+    //     if (articles.length === 0) {
+    //       setIsNotFound(true);
+    //     } else {
+    //       setIsNotFound(false);
+    //     }
+    //     setNewsCardItems(articles);
+    //     setIsLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //     setIsLoading(false);
+    //   });
   };
   // useEffect(() => {
   //   api
@@ -118,75 +133,77 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Header
-                onSigninModal={handleSigninModal}
-                isLoggedIn={isLoggedIn}
-                page="main"
-                onProfileLogout={handleLogOutSubmit}
-                onSearch={handleSearch}
-              />
-            }
-          />
-          <Route
-            path="/saved-news"
-            element={
-              <Header
-                onSigninModal={handleSigninModal}
-                isLoggedIn={isLoggedIn}
-                page="saved-news"
-                onProfileLogout={handleLogOutSubmit}
-              />
-            }
-          />
-        </Routes>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                isLoading={isLoading}
-                isNotFound={isNotFound}
-                newsCardItems={newsCardItems}
-              />
-            }
-          />
-          <Route
-            path="/saved-news"
-            element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <SavedNewsHeader
-                  isLoggedIn={isLoggedIn}
+        <div className="page__content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Header
                   onSigninModal={handleSigninModal}
+                  isLoggedIn={isLoggedIn}
+                  page="main"
+                  onProfileLogout={handleLogOutSubmit}
+                  onSearch={handleSearch}
                 />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <Header
+                  onSigninModal={handleSigninModal}
+                  isLoggedIn={isLoggedIn}
+                  page="saved-news"
+                  onProfileLogout={handleLogOutSubmit}
+                />
+              }
+            />
+          </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  isLoading={isLoading}
+                  isNotFound={isNotFound}
+                  newsCardItems={newsCardItems}
+                />
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedNewsHeader
+                    isLoggedIn={isLoggedIn}
+                    onSigninModal={handleSigninModal}
+                  />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
 
-        <Footer />
-        {activeModal === "signin" && (
-          <SigninModal
-            isOpen={true}
-            handleSigninModal={handleSigninModal}
-            onClose={handleCloseModal}
-            onSecondButtonClick={handleRegisterModal}
-            activeModal={activeModal}
-            onSubmitButtonClick={handleSignInModalSubmit}
-          />
-        )}
-        {activeModal === "signup" && (
-          <RegisterModal
-            isOpen={true}
-            handleRegisterModal={handleRegisterModal}
-            onClose={handleCloseModal}
-            onSecondButtonClick={handleSigninModal}
-            activeModal={activeModal}
-          />
-        )}
+          <Footer />
+          {activeModal === "signin" && (
+            <SigninModal
+              isOpen={true}
+              handleSigninModal={handleSigninModal}
+              onClose={handleCloseModal}
+              onSecondButtonClick={handleRegisterModal}
+              activeModal={activeModal}
+              onSubmitButtonClick={handleSignInModalSubmit}
+            />
+          )}
+          {activeModal === "signup" && (
+            <RegisterModal
+              isOpen={true}
+              handleRegisterModal={handleRegisterModal}
+              onClose={handleCloseModal}
+              onSecondButtonClick={handleSigninModal}
+              activeModal={activeModal}
+            />
+          )}
+        </div>
       </div>
     </CurrentUserContext.Provider>
   );

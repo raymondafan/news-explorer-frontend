@@ -17,11 +17,7 @@ const fetchNews = (query) => {
 
   return fetch(url)
     .then(handleServerResponse)
-    .then((data) => data.articles)
-    .catch((error) => {
-      console.error("Error fetching news:", error);
-      throw error;
-    });
+    .then((data) => data.articles);
 };
 
 export default { fetchNews };

@@ -1,10 +1,10 @@
 import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
-const Main = ({ isLoading, isNotFound, newsCardItems }) => {
+const Main = ({ isLoading, isNotFound, newsCardItems, isSearchInitiated }) => {
   return (
     <main className="main">
-      {newsCardItems.length > 0 && (
+      {isSearchInitiated && (
         <NewsCardList
           newsCardItems={newsCardItems}
           isLoading={isLoading}

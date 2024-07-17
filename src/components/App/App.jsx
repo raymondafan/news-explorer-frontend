@@ -23,6 +23,7 @@ function App() {
   const [newsCardItems, setNewsCardItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [userData, setUserData] = useState({ email: "" });
+  const [isSearchInitiated, setIsSearchInitiated] = useState(false);
 
   const navigate = useNavigate();
   const handleSigninModal = () => {
@@ -68,6 +69,7 @@ function App() {
   };
 
   const handleSearch = (query) => {
+    setIsSearchInitiated(true);
     setIsLoading(true);
     newsApi
       .fetchNews(query)
@@ -167,6 +169,8 @@ function App() {
                   isLoading={isLoading}
                   isNotFound={isNotFound}
                   newsCardItems={newsCardItems}
+                  onSearch={handleSearch}
+                  isSearchInitiated={isSearchInitiated}
                 />
               }
             />

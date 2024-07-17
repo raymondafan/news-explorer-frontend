@@ -27,13 +27,16 @@
   font-weight: 400;
 }
 .search-form__input {
-  padding: 22px 21px;
-  width: 563px;
+  padding: 21px 24px;
+  width: 560px;
   border-radius: 50px;
   border: none;
+  font-family: "roboto-400-regular";
+  font-weight: 400;
+  font-size: 16px;
 }
 .search-form__button {
-  padding: 22px 56px;
+  padding: 20px 56px;
   border-radius: 50px;
   border: none;
   position: absolute;
@@ -43,6 +46,9 @@
   color: #ffffff;
   transition: 0.25s ease-in-out;
   opacity: 100%;
+  font-family: "roboto-500";
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .search-form__button:hover {
@@ -53,4 +59,26 @@
 
 .cards {
   max-width: 35px;
+}
+@media screen and (max-width: 815px) {
+  .search-form__header {
+    font-size: 36px;
+  }
+
+  .search-form__container {
+    max-width: 452px;
+  }
+  .search-form {
+    padding: 38px 40px 48px;
+  }
+  .search-form__input {
+    width: 404px;
+    padding: 17px 24px;
+  }
+  .search-form__button {
+    padding: 16px 52px;
+  }
+  .search-form__subHeader {
+    padding: 16px 0 48px;
+  }
 }

@@ -8,7 +8,7 @@
 .notFound__image {
   height: 74px;
   width: 74px;
-  margin: 86px 0 0;
+  margin: 6px 0 0;
 }
 .notFound__text-container {
   display: flex;
@@ -22,7 +22,7 @@
   font-weight: 400;
 }
 .notFound__subText {
-  margin: 16px 0 80px;
+  margin: 16px 0 0;
   font-family: "roboto-400-regular";
   font-size: 18px;
   font-weight: 400;

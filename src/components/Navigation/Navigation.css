@@ -33,7 +33,7 @@
   background: transparent;
   border-radius: 100px;
   padding: 12px;
-  width: 152px;
+
   font-family: "roboto-500";
   color: inherit;
   border-color: #ffffff;
@@ -87,4 +87,20 @@
 }
 .nav__profile_saved-news {
   border-color: black;
+}
+@media screen and (max-width: 815px) {
+  .nav__header {
+    padding: 14px 40px 12px;
+  }
+  .nav__button-signin {
+    font-size: 16px;
+    width: 152px;
+    padding: 8px 12px;
+  }
+  .nav__button-home {
+    font-size: 16px;
+  }
+  .nav__user-container {
+    gap: 16px;
+  }
 }

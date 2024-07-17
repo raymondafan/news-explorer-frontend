@@ -1,5 +1,4 @@
 .preloader {
-  min-height: 280px;
   display: flex;
   background-color: #f5f6f7;
   justify-content: center;
@@ -15,12 +14,13 @@
   left: 0;
   right: 0;
   bottom: 0;
+  top: 540px;
   margin: auto;
 
   animation: spin 0.75s infinite linear;
 }
 .preloader__text {
-  margin: 178px 0 0;
+  margin: 98px 0 0;
   font-family: "roboto-400-regular";
   color: #b6bcbf;
   font-size: 18px;
@@ -30,5 +30,11 @@
 @keyframes spin {
   100% {
     transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 815px) {
+  .circle-preloader {
+    top: 0;
+    bottom: -150px;
   }
 }

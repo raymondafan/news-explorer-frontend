@@ -12,7 +12,7 @@ import { getToken } from "../../utils/token";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import auth from "../../utils/auth";
 import { handleToken, removeToken } from "../../utils/token";
-import api from "../../utils/api";
+
 import newsApi from "../../utils/newsApi";
 
 function App() {

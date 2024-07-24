@@ -10,7 +10,6 @@ const ModalWithForm = ({
   onClose,
   isOpen,
 }) => {
-  console.log(`Modal open state: ${isOpen}`);
   return (
     <div className={`modal ${isOpen ? "modal_open" : ""}`}>
       <div className="modal__form-container">

@@ -1,20 +1,20 @@
-.saved-news__header {
+.saved-news__header-container {
   padding: 40px 104px 56px;
 }
 
-.saved-news__title {
+.saved-news__header-title {
   margin: 0 0 28px;
   font-family: "roboto-400-regular";
   font-size: 18px;
   font-weight: 400;
   color: rgba(26, 27, 34, 0.5);
 }
-.saved-news__subtitle {
+.saved-news__header-subtitle {
   margin: 0 0 30px;
   font-family: "roboto-slab-400-regular";
   font-size: 30px;
   font-weight: 400;
 }
-.saved-news__keywords {
+.saved-news__header-keywords {
   margin: 0;
 }

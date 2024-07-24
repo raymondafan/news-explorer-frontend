@@ -1,0 +1,103 @@
+.saved-news-link {
+  text-decoration: none;
+  color: inherit;
+}
+.saved-news__info {
+  background: #fff;
+  height: 260px;
+  padding: 20px 24px 24px;
+  border-radius: 0px 0px 15px 15px;
+}
+.saved-news-list__header {
+  margin: 0;
+  font-family: "roboto-slab-400-regular";
+  font-size: 40px;
+  font-weight: 400;
+}
+.saved-news__content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.saved-news__image {
+  height: 272px;
+  border-radius: 15px 15px 0px 0px;
+}
+.saved-news__remove-button {
+  position: absolute;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.saved-news__trash-icon {
+  opacity: 0.7;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  padding: 8px;
+}
+
+.saved-news__trash-icon:hover {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(12%) sepia(8%) saturate(1286%)
+    hue-rotate(186deg) brightness(100%) contrast(92%);
+}
+.saved-news__date {
+  font-family: " SourceSansPro-Regular";
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(182, 188, 191, 1);
+  margin: 0;
+}
+.saved-news__article-title {
+  margin: 12px 0 16px;
+  font-family: "roboto-slab-400-regular";
+  font-size: 26px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.saved-news__description {
+  margin: 0;
+  font-family: "roboto-400-regular";
+  font-size: 16px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.saved-news__publisher {
+  margin: 0;
+  padding-top: 18px;
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  font-family: "roboto-slab-700";
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(182, 188, 191, 1);
+}
+.saved-news__keyword {
+  position: absolute;
+  background: #ffffff;
+  padding: 8px 22px;
+  top: 24px;
+  left: 24px;
+  border-radius: 8px;
+  font-family: "roboto-500";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}

@@ -14,6 +14,8 @@ import auth from "../../utils/auth";
 import { handleToken, removeToken } from "../../utils/token";
 
 import newsApi from "../../utils/newsApi";
+import api from "../../utils/api";
+import { set } from "mongoose";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -24,7 +26,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [userData, setUserData] = useState({ email: "" });
   const [isSearchInitiated, setIsSearchInitiated] = useState(false);
-
+  const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
   const handleSigninModal = () => {
     setActiveModal("signin");
@@ -85,7 +87,18 @@ function App() {
         console.error(err);
       })
       .finally(() => setIsLoading(false));
+  };
 
+  const handleSaveArticle = (article) => {
+    console.log(article);
+    api
+      .saveArticle(article)
+      .then((savedArticle) => {
+        setSavedArticles((prev) => [...prev, savedArticle]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     // api
     //   .getItems(query)
     //   .then((data) => {
@@ -115,6 +128,12 @@ function App() {
   //     });
   // });
   useEffect(() => {
+    api.getItems().then((data) => {
+      const articles = data[0].articles;
+      setSavedArticles(articles);
+    });
+  }, []);
+  useEffect(() => {
     const handleOutsideClick = (e) => {
       if (e.target.classList.contains("modal")) {
         return handleCloseModal();
@@ -131,7 +150,6 @@ function App() {
     };
   });
 
-  console.log(`Active modal: ${activeModal}`);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -171,6 +189,7 @@ function App() {
                   newsCardItems={newsCardItems}
                   onSearch={handleSearch}
                   isSearchInitiated={isSearchInitiated}
+                  onSaveArticle={handleSaveArticle}
                 />
               }
             />
@@ -181,6 +200,7 @@ function App() {
                   <SavedNewsHeader
                     isLoggedIn={isLoggedIn}
                     onSigninModal={handleSigninModal}
+                    savedArticles={savedArticles}
                   />
                 </ProtectedRoute>
               }

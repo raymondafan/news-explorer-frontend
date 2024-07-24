@@ -3,7 +3,12 @@ import "./NewsCardList.css";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
 import { useState } from "react";
-const NewsCardList = ({ newsCardItems, isLoading, isNotFound }) => {
+const NewsCardList = ({
+  newsCardItems,
+  isLoading,
+  isNotFound,
+  onSaveArticle,
+}) => {
   const [visibleCount, setVisibleCount] = useState(3);
   const handleShowMore = () => {
     setVisibleCount((count) => {
@@ -22,7 +27,11 @@ const NewsCardList = ({ newsCardItems, isLoading, isNotFound }) => {
           <h2 className="news-card-list__header"> Search results</h2>
           <div className="news-card-list__items">
             {newsCardItems.slice(0, visibleCount).map((article, index) => (
-              <NewsCard key={index} article={article} />
+              <NewsCard
+                key={index}
+                article={article}
+                onSaveArticle={onSaveArticle}
+              />
             ))}
           </div>
           {visibleCount < newsCardItems.length && (

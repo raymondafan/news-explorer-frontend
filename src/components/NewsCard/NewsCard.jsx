@@ -2,7 +2,7 @@ import "./NewsCard.css";
 import saveButton from "../../assets/bookmark.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-const NewsCard = ({ article }) => {
+const NewsCard = ({ article, onSaveArticle }) => {
   const { title, url, id, urlToImage, description, publishedAt, source } =
     article;
   const [isTooltipVisible, setTooltipVisible] = useState(false);
@@ -19,6 +19,7 @@ const NewsCard = ({ article }) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options);
   };
+
   return (
     <div className="news-card" key={id}>
       <div className="news-card__content">
@@ -31,6 +32,7 @@ const NewsCard = ({ article }) => {
           className="news-card__save-button"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={onSaveArticle}
         >
           <img className="news-card__save-icon" src={saveButton} alt="save" />
           {isTooltipVisible && (

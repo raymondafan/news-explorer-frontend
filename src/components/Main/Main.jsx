@@ -1,7 +1,13 @@
 import About from "../About/About";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
-const Main = ({ isLoading, isNotFound, newsCardItems, isSearchInitiated }) => {
+const Main = ({
+  isLoading,
+  isNotFound,
+  newsCardItems,
+  isSearchInitiated,
+  onSaveArticle,
+}) => {
   return (
     <main className="main">
       {isSearchInitiated && (
@@ -9,6 +15,7 @@ const Main = ({ isLoading, isNotFound, newsCardItems, isSearchInitiated }) => {
           newsCardItems={newsCardItems}
           isLoading={isLoading}
           isNotFound={isNotFound}
+          onSaveArticle={onSaveArticle}
         />
       )}
       <About />

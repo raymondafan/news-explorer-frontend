@@ -8,6 +8,7 @@ const NewsCardList = ({
   isLoading,
   isNotFound,
   onSaveArticle,
+  isLoggedIn,
 }) => {
   const [visibleCount, setVisibleCount] = useState(3);
   const handleShowMore = () => {
@@ -31,6 +32,7 @@ const NewsCardList = ({
                 key={index}
                 article={article}
                 onSaveArticle={onSaveArticle}
+                isLoggedIn={isLoggedIn}
               />
             ))}
           </div>

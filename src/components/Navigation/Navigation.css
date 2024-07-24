@@ -33,7 +33,7 @@
   background: transparent;
   border-radius: 100px;
   padding: 12px;
-
+  line-height: 24px;
   font-family: "roboto-500";
   color: inherit;
   border-color: #ffffff;
@@ -83,11 +83,13 @@
   font-family: "roboto-500";
   font-weight: 500;
   font-size: 18px;
+  line-height: 24px;
   align-items: center;
 }
 .nav__profile_saved-news {
   border-color: black;
 }
+
 @media screen and (max-width: 815px) {
   .nav__header {
     padding: 14px 40px 12px;
@@ -102,5 +104,16 @@
   }
   .nav__user-container {
     gap: 16px;
+  }
+
+  .nav__signin-container {
+    gap: 46px;
+  }
+  .nav__saved-news {
+    font-size: 16px;
+  }
+  .nav__profile {
+    font-size: 16px;
+    height: 40px;
   }
 }

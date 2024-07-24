@@ -2,7 +2,8 @@ import "./NewsCard.css";
 import saveButton from "../../assets/bookmark.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-const NewsCard = ({ article, onSaveArticle }) => {
+
+const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
   const { title, url, id, urlToImage, description, publishedAt, source } =
     article;
   const [isTooltipVisible, setTooltipVisible] = useState(false);
@@ -35,11 +36,13 @@ const NewsCard = ({ article, onSaveArticle }) => {
           onClick={onSaveArticle}
         >
           <img className="news-card__save-icon" src={saveButton} alt="save" />
-          {isTooltipVisible && (
-            <span className="news-card__save-hover">
-              Sign in to save articles
-            </span>
-          )}
+          {!isLoggedIn
+            ? isTooltipVisible && (
+                <span className="news-card__save-hover">
+                  Sign in to save articles
+                </span>
+              )
+            : ""}
         </button>
         <Link
           to={url}

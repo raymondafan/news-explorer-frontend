@@ -34,6 +34,7 @@
   font-family: "roboto-400-regular";
   font-weight: 400;
   font-size: 16px;
+  line-height: 22px;
 }
 .search-form__button {
   padding: 20px 56px;
@@ -49,6 +50,7 @@
   font-family: "roboto-500";
   font-weight: 500;
   font-size: 18px;
+  line-height: 24px;
 }
 
 .search-form__button:hover {

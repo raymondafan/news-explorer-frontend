@@ -7,6 +7,7 @@ const Main = ({
   newsCardItems,
   isSearchInitiated,
   onSaveArticle,
+  isLoggedIn,
 }) => {
   return (
     <main className="main">
@@ -16,6 +17,7 @@ const Main = ({
           isLoading={isLoading}
           isNotFound={isNotFound}
           onSaveArticle={onSaveArticle}
+          isLoggedIn={isLoggedIn}
         />
       )}
       <About />

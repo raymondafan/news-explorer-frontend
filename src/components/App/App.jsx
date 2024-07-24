@@ -190,6 +190,7 @@ function App() {
                   onSearch={handleSearch}
                   isSearchInitiated={isSearchInitiated}
                   onSaveArticle={handleSaveArticle}
+                  isLoggedIn={isLoggedIn}
                 />
               }
             />

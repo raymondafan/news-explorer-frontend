@@ -2,7 +2,7 @@ import "./NewsCard.css";
 import saveButton from "../../assets/bookmark.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import { useEffect } from "react";
 const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
   const { title, url, id, urlToImage, description, publishedAt, source } =
     article;
@@ -10,6 +10,7 @@ const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
   const handleMouseEnter = () => {
     setTooltipVisible(true);
   };
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 815);
 
   const handleMouseLeave = () => {
     setTooltipVisible(false);
@@ -20,6 +21,17 @@ const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 815);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="news-card" key={id}>
@@ -36,13 +48,11 @@ const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
           onClick={onSaveArticle}
         >
           <img className="news-card__save-icon" src={saveButton} alt="save" />
-          {!isLoggedIn
-            ? isTooltipVisible && (
-                <span className="news-card__save-hover">
-                  Sign in to save articles
-                </span>
-              )
-            : ""}
+          {!isLoggedIn && isTooltipVisible && !isSmallScreen && (
+            <span className="news-card__save-hover">
+              Sign in to save articles
+            </span>
+          )}
         </button>
         <Link
           to={url}

@@ -18,3 +18,17 @@
 .saved-news__header-keywords {
   margin: 0;
 }
+
+@media screen and (max-width: 815px) {
+  .saved-news__header-title {
+    margin: 0 0 16px;
+
+    font-size: 14px;
+  }
+  .saved-news__header-container {
+    padding: 24px 40px 32px;
+  }
+  .saved-news__header-subtitle {
+    margin: 0 0 16px;
+  }
+}

@@ -7,3 +7,10 @@
   padding: 62px 106px;
   background: rgba(245, 246, 247, 1);
 }
+@media screen and (max-width: 815px) {
+  .saved-news-list {
+    grid-template-columns: repeat(auto-fit, 224px);
+    grid-gap: 8px;
+    padding: 32px 40px;
+  }
+}

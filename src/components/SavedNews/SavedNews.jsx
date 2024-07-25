@@ -1,6 +1,7 @@
 import "./SavedNews.css";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { useEffect } from "react";
 import deleteButton from "../../assets/trash.svg";
 const SavedNews = ({ article }) => {
   const { title, url, id, urlToImage, description, publishedAt, source } =
@@ -11,6 +12,27 @@ const SavedNews = ({ article }) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options);
   };
+  const [isTooltipVisible, setTooltipVisible] = useState(false);
+  const handleMouseEnter = () => {
+    setTooltipVisible(true);
+  };
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 815);
+
+  const handleMouseLeave = () => {
+    setTooltipVisible(false);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 815);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className="saved-news" key={id}>
       <div className="saved-news__content">
@@ -20,12 +42,19 @@ const SavedNews = ({ article }) => {
           className="saved-news__image"
         />
         <div className="saved-news__keyword">nature</div>
-        <button className="saved-news__remove-button">
+        <button
+          className="saved-news__remove-button"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <img
             className="saved-news__trash-icon"
             src={deleteButton}
-            alt="save"
+            alt="delete"
           />
+          {isTooltipVisible && !isSmallScreen && (
+            <span className="saved-news__remove-hover">Remove from saved</span>
+          )}
         </button>
         <Link
           to={url}

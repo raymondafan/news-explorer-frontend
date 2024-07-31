@@ -29,6 +29,7 @@
   position: absolute;
   opacity: 100%;
   transition: 0.25s ease-in-out;
+  background-size: cover;
 }
 .modal__close-button:hover {
   opacity: 60%;
@@ -115,4 +116,16 @@
 .modal__button-text {
   font-family: "inter-400-regular";
   font-size: 14px;
+}
+@media screen and (max-width: 610px) {
+  .modal__close-button {
+    right: 22px;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+  .modal {
+    padding-top: 56px;
+    align-items: normal;
+  }
 }

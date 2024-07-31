@@ -28,13 +28,14 @@
 }
 .search-form__input {
   padding: 21px 24px;
-  width: 560px;
+  width: 100%;
   border-radius: 50px;
   border: none;
   font-family: "roboto-400-regular";
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+  box-sizing: border-box;
 }
 .search-form__button {
   padding: 20px 56px;
@@ -43,6 +44,7 @@
   position: absolute;
   background: #2f71e5;
   right: 0px;
+  top: 0;
   cursor: pointer;
   color: #ffffff;
   transition: 0.25s ease-in-out;
@@ -62,6 +64,10 @@
 .cards {
   max-width: 35px;
 }
+.search-form__bar {
+  position: relative;
+  align-self: stretch;
+}
 @media screen and (max-width: 815px) {
   .search-form__header {
     font-size: 36px;
@@ -74,7 +80,6 @@
     padding: 38px 40px 48px;
   }
   .search-form__input {
-    width: 404px;
     padding: 17px 24px;
   }
   .search-form__button {

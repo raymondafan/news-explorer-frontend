@@ -27,15 +27,28 @@ function App() {
   const [userData, setUserData] = useState({ email: "" });
   const [isSearchInitiated, setIsSearchInitiated] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const handleSigninModal = () => {
     setActiveModal("signin");
+    setIsMenuOpen(false);
+    setIsModalOpen(true);
   };
   const handleRegisterModal = () => {
     setActiveModal("signup");
   };
+
   const handleCloseModal = () => {
     setActiveModal("");
+    setIsModalOpen(false);
+    setIsMenuOpen(false);
+  };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
   const handleEscKey = (e) => {
     if (e.key === "Escape") {
@@ -57,17 +70,20 @@ function App() {
         setCurrentUser(userData);
         setIsLoggedIn(true);
         handleCloseModal();
-        navigate("/");
+        setIsMenuOpen(false);
+        navigate("/saved-news");
       })
       .catch((err) => {
         console.error(err);
       });
   };
+
   const handleLogOutSubmit = (user) => {
     setCurrentUser(true);
     removeToken(user);
     navigate("/");
     setIsLoggedIn(false);
+    setIsMenuOpen(false);
   };
 
   const handleSearch = (query) => {
@@ -164,6 +180,10 @@ function App() {
                   page="main"
                   onProfileLogout={handleLogOutSubmit}
                   onSearch={handleSearch}
+                  onToggleMenu={toggleMenu}
+                  onCloseMenu={closeMenu}
+                  isMenuOpen={isMenuOpen}
+                  isModalOpen={isModalOpen}
                 />
               }
             />
@@ -175,6 +195,9 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   page="saved-news"
                   onProfileLogout={handleLogOutSubmit}
+                  onToggleMenu={toggleMenu}
+                  onCloseMenu={closeMenu}
+                  isMenuOpen={isMenuOpen}
                 />
               }
             />

@@ -8,6 +8,7 @@ const SigninModal = ({
   onSecondButtonClick,
   onSubmitButtonClick,
   isLoading,
+  onSubmitButtonClickMobile,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +33,7 @@ const SigninModal = ({
   return (
     <ModalWithForm
       onSubmit={handleSubmit}
+      onSubmitMobile={onSubmitButtonClickMobile}
       onClose={onClose}
       name="signin"
       title="Sign In"
@@ -39,6 +41,7 @@ const SigninModal = ({
       isOpen={isOpen}
       onSubmitButtonClick={onSubmitButtonClick}
       onSecondButtonClick={onSecondButtonClick}
+      onSubmitButtonClickMobile={onSubmitButtonClickMobile}
       activeModal={activeModal}
       secondButtonText={activeModal === "signup" ? "  Sign In" : "  Sign Up"}
     >

@@ -8,6 +8,10 @@ const Header = ({
   page,
   onProfileLogout,
   onSearch,
+  onToggleMenu,
+  onCloseMenu,
+  isMenuOpen,
+  isModalOpen,
 }) => {
   return (
     <header
@@ -18,6 +22,10 @@ const Header = ({
         isLoggedIn={isLoggedIn}
         page={page}
         onProfileLogout={onProfileLogout}
+        onToggleMenu={onToggleMenu}
+        onCloseMenu={onCloseMenu}
+        isMenuOpen={isMenuOpen}
+        isModalOpen={isModalOpen}
       />
       {page === "main" && <SearchForm onSearch={onSearch} />}
     </header>

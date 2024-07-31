@@ -25,10 +25,25 @@
   font-family: "roboto-400-regular";
   font-size: 18px;
   font-weight: 400;
+  padding: 0 0 34px 0;
 }
 .extra-space {
   margin-bottom: 20px;
 }
 .about__container {
   display: flex;
+}
+@media screen and (max-width: 815px) {
+  .about__image {
+    width: 232px;
+    height: 232px;
+  }
+  .about {
+    padding: 40px 40px 61px;
+  }
+  .about__title {
+    margin: 0;
+    padding: 0 0 16px;
+    font-size: 30px;
+  }
 }

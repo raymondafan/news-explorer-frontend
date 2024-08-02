@@ -43,6 +43,7 @@
 }
 @media screen and (max-width: 815px) {
   .footer__content {
+    padding: 20px 40px;
   }
 }
 @media screen and (max-width: 615px) {

@@ -81,6 +81,7 @@
   font-family: "roboto-500";
   font-size: 18px;
   color: #ffffff;
+  white-space: nowrap;
   cursor: pointer;
   opacity: 100%;
   transition: 0.25s ease-in-out;

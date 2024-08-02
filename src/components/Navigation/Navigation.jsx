@@ -31,19 +31,25 @@ const Navigation = ({
     };
   }, []);
   const handleEscKey = (e) => {
+    console.log("handleEscKey");
     if (e.key === "Escape") {
       return onCloseMenu();
     }
   };
   useEffect(() => {
+    console.log("useEffect");
     const handleOutsideClick = (e) => {
-      if (e.target.classList.contains("modal")) {
+      console.log("something");
+      console.log(e.target.closest(".modal"));
+      if (!e.target.closest(".nav")) {
         return onCloseMenu();
       }
     };
-    if (!isModalOpen) {
+    console.log(isMenuOpen);
+    if (!isMenuOpen) {
       return;
     }
+    console.log("useeffect2");
     document.addEventListener("mousedown", handleOutsideClick);
     document.addEventListener("keydown", handleEscKey);
     return () => {
@@ -55,16 +61,31 @@ const Navigation = ({
   return (
     <nav className="nav">
       <div
-        className={`nav__header ${
-          page === "saved-news" ? "nav__profile_saved-news" : ""
-        } ${isMenuOpen && isSmallScreen ? "nav__header--menu-open" : ""}`}
+        className={
+          isMenuOpen && isSmallScreen
+            ? `nav__header-white ${
+                page === "saved-news" ? "nav__profile_saved-news" : ""
+              } ${isMenuOpen && isSmallScreen ? "nav__header--menu-open" : ""}`
+            : `nav__header ${
+                page === "saved-news" ? "nav__profile_saved-news" : ""
+              } ${isMenuOpen && isSmallScreen ? "nav__header--menu-open" : ""}`
+        }
       >
-        <NavLink
-          to="/"
-          className={`${isModalOpen ? "nav__header--modal-open" : "nav__logo"}`}
-        >
-          NewsExplorer
-        </NavLink>
+        {isMenuOpen && isSmallScreen ? (
+          <NavLink
+            to="/"
+            onClick={onCloseMenu}
+            className={`${
+              isModalOpen ? "nav__header--modal-open" : "nav__logo-white"
+            }`}
+          >
+            NewsExplorer
+          </NavLink>
+        ) : (
+          <NavLink to="/" onClick={onCloseMenu} className="nav__logo">
+            NewsExplorer
+          </NavLink>
+        )}
 
         {isSmallScreen && !isMenuOpen ? (
           <img
@@ -129,9 +150,19 @@ const Navigation = ({
       </div>
       {isMenuOpen && isSmallScreen && (
         <div className="nav__mobile-menu">
-          <NavLink to="/" className="nav__button-home" onClick={onCloseMenu}>
-            Home
-          </NavLink>
+          {isMenuOpen && page === "saved-news" ? (
+            <NavLink
+              to="/"
+              className="nav__button-home-white"
+              onClick={onCloseMenu}
+            >
+              Home
+            </NavLink>
+          ) : (
+            <NavLink to="/" className="nav__button-home" onClick={onCloseMenu}>
+              Home
+            </NavLink>
+          )}
           {!isLoggedIn ? (
             <div className="nav__button-signin__container">
               <button
@@ -144,26 +175,47 @@ const Navigation = ({
             </div>
           ) : (
             <div className="nav__signin-container">
-              <NavLink
-                to="/saved-news"
-                className="nav__saved-news"
-                onClick={onCloseMenu}
-              >
-                Saved articles
-              </NavLink>
-              <button
-                onClick={onProfileLogout}
-                className={`nav__profile ${
-                  page === "saved-news" ? "nav__profile_saved-news" : ""
-                }`}
-              >
-                Raymond
-                <img
-                  src={page === "saved-news" ? unionIconBlack : unionIcon}
-                  alt="union"
-                  className="nav__union-icon"
-                />
-              </button>
+              {isMenuOpen && page === "saved-news" ? (
+                <NavLink
+                  to="/saved-news"
+                  className="nav__saved-news__white"
+                  onClick={onCloseMenu}
+                >
+                  Saved articles
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/saved-news"
+                  className="nav__saved-news"
+                  onClick={onCloseMenu}
+                >
+                  Saved articles
+                </NavLink>
+              )}
+              {isMenuOpen && page === "saved-news" ? (
+                <button onClick={onProfileLogout} className={`nav__profile `}>
+                  Raymond
+                  <img
+                    src={unionIcon}
+                    alt="union"
+                    className="nav__union-icon"
+                  />
+                </button>
+              ) : (
+                <button
+                  onClick={onProfileLogout}
+                  className={`nav__profile ${
+                    page === "saved-news" ? "nav__profile_saved-news" : ""
+                  }`}
+                >
+                  Raymond
+                  <img
+                    src={page === "saved-news" ? unionIconBlack : unionIcon}
+                    alt="union"
+                    className="nav__union-icon"
+                  />
+                </button>
+              )}
             </div>
           )}
         </div>

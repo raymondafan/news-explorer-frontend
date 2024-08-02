@@ -1,5 +1,7 @@
 import "./NewsCard.css";
 import saveButton from "../../assets/bookmark.svg";
+import saveButtonActive from "../../assets/bluebookmark.svg";
+import saveButtonHover from "../../assets/hoverbookmark.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -7,14 +9,31 @@ const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
   const { title, url, id, urlToImage, description, publishedAt, source } =
     article;
   const [isTooltipVisible, setTooltipVisible] = useState(false);
+
+  const [isSaved, setIsSaved] = useState(false);
+
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 815);
   const handleMouseEnter = () => {
     setTooltipVisible(true);
   };
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 815);
-
   const handleMouseLeave = () => {
     setTooltipVisible(false);
   };
+
+  const handlSaveClick = (article) => {
+    setIsSaved((prev) => !prev);
+    onSaveArticle(article);
+  };
+
+  // const getSaveButtonClass = () => {
+  //   if (isSaved) {
+  //     return "news__card-save_button-active";
+  //   }
+  //   return "";
+  // };
+  // const authSaveButtonClass=()=>{
+
+  // }
 
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);
@@ -45,9 +64,16 @@ const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
           className="news-card__save-button"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onClick={onSaveArticle}
+          onClick={handlSaveClick}
         >
-          <img className="news-card__save-icon" src={saveButton} alt="save" />
+          <img
+            className={
+              !isSaved ? "news-card__save-icon" : "news-card__save-icon__active"
+            }
+            src={!isSaved ? saveButton : saveButtonActive}
+            alt="save"
+          />
+
           {!isLoggedIn && isTooltipVisible && !isSmallScreen && (
             <span className="news-card__save-hover">
               Sign in to save articles

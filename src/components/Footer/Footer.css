@@ -41,3 +41,9 @@
 .footer__link-icon {
   cursor: pointer;
 }
+@media screen and (max-width: 815px) {
+  .footer__content {
+  }
+}
+@media screen and (max-width: 615px) {
+}

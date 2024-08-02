@@ -27,15 +27,17 @@
   font-size: 18px;
   font-weight: 400;
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
-.footer__link-tripleTen {
+.footer__link--tripleTen {
   cursor: pointer;
   font-family: "roboto-400-regular";
   font-size: 18px;
   font-weight: 400;
+  text-decoration: none;
+  color: inherit;
 }
-.footer__link-github {
+.footer__link--github {
   padding: 0 24px 0 40px;
 }
 .footer__link-icon {

@@ -13,20 +13,42 @@ const Footer = ({}) => {
           <NavLink to="/" className="footer__link-home">
             Home
           </NavLink>
-          <li className="footer__link-tripleTen">TripleTen</li>
-          <li className="footer__link-github">
-            <img
-              src={githubLink}
-              alt="Github Logo"
-              className="footer__link-icon"
-            />
+          <li className="footer__link--tripleTen">
+            <a
+              className="footer__link--tripleTen"
+              href="https://tripleten.com/programs/main/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TripleTen
+            </a>
           </li>
-          <li className="footer__link-facebook">
-            <img
-              src={facebookLink}
-              alt="Facebook Logo"
-              className="footer__link-icon"
-            />
+          <li className="footer__link--github">
+            <a
+              href="https://github.com/raymondafan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={githubLink}
+                alt="Github Logo"
+                className="footer__link-icon"
+              />
+            </a>
+          </li>
+          <li className="footer__link--facebook">
+            <a
+              className="footer__link--facebook"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={facebookLink}
+                alt="Facebook Logo"
+                className="footer__link-icon"
+              />
+            </a>
           </li>
         </ul>
       </div>

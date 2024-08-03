@@ -1,5 +1,5 @@
 .header {
-  margin: 0 auto;
+  margin: 0;
   background-image: url(../../assets/headerbackground.svg);
   background-position: center;
   background-size: cover;
@@ -9,6 +9,4 @@
   color: black;
   background-image: none;
   height: auto;
-}
-@media screen and (max-width: 760px) {
 }

@@ -47,6 +47,7 @@
   margin: 0;
   font-family: "roboto-900";
   padding: 0 0 22px;
+  font-size: 24px;
 }
 .modal__label {
   display: flex;
@@ -128,5 +129,8 @@
   .modal {
     padding-top: 56px;
     align-items: normal;
+  }
+  .modal__form-container {
+    padding: 16px;
   }
 }

@@ -1,7 +1,7 @@
 import "./NewsCard.css";
 import saveButton from "../../assets/bookmark.svg";
 import saveButtonActive from "../../assets/bluebookmark.svg";
-import saveButtonHover from "../../assets/hoverbookmark.svg";
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";

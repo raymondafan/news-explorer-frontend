@@ -17,6 +17,10 @@
 }
 .saved-news__header-keywords {
   margin: 0;
+  font-size: 18px;
+  font-family: "roboto-slab-400-regular";
+
+  font-weight: 400;
 }
 
 @media screen and (max-width: 815px) {
@@ -30,5 +34,13 @@
   }
   .saved-news__header-subtitle {
     margin: 0 0 16px;
+  }
+}
+@media screen and (max-width: 610px) {
+  .saved-news__header-container {
+    padding: 8px 16px 32px;
+  }
+  .saved-news__header-subtitle {
+    margin: 0 0 50px;
   }
 }

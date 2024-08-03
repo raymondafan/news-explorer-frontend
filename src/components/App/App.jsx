@@ -15,7 +15,6 @@ import { handleToken, removeToken } from "../../utils/token";
 
 import newsApi from "../../utils/newsApi";
 import api from "../../utils/api";
-import { set } from "mongoose";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");

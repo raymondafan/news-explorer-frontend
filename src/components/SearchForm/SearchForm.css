@@ -101,4 +101,7 @@
   .search-form__subHeader {
     padding: 16px 0 122px;
   }
+  .search-form__input {
+    padding: 17px;
+  }
 }

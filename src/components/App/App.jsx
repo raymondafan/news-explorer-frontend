@@ -29,6 +29,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shouldResetVisibleCount, setShouldResetVisibleCount] = useState(false);
   const navigate = useNavigate();
   const handleSigninModal = () => {
     setActiveModal("signin");
@@ -79,16 +80,19 @@ function App() {
   };
 
   const handleLogOutSubmit = (user) => {
-    setCurrentUser(true);
+    setCurrentUser({});
     removeToken(user);
     navigate("/");
     setIsLoggedIn(false);
     setIsMenuOpen(false);
+    setNewsCardItems([]);
+    setIsSearchInitiated(false);
   };
 
   const handleSearch = (query) => {
     setIsSearchInitiated(true);
     setIsLoading(true);
+    setShouldResetVisibleCount(true);
     newsApi
       .fetchNews(query)
       .then((articles) => {
@@ -102,7 +106,10 @@ function App() {
       .catch((err) => {
         console.error(err);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+        setShouldResetVisibleCount(false);
+      });
   };
 
   const handleSaveArticle = (article) => {
@@ -143,12 +150,22 @@ function App() {
   //       console.error(err);
   //     });
   // });
+  // useEffect(() => {
+  //   // Reset search state when navigating back to the main page
+  //   if (location.pathname === "/") {
+  //     setNewsCardItems([]);
+  //     setIsSearchInitiated(false);
+  //     setIsNotFound(false);
+  //   }
+  // }, [location.pathname]);
+
   useEffect(() => {
     api.getItems().then((data) => {
       const articles = data[0].articles;
       setSavedArticles(articles);
     });
   }, []);
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (e.target.classList.contains("modal")) {
@@ -214,6 +231,7 @@ function App() {
                   isSearchInitiated={isSearchInitiated}
                   onSaveArticle={handleSaveArticle}
                   isLoggedIn={isLoggedIn}
+                  shouldResetVisibleCount={shouldResetVisibleCount}
                 />
               }
             />

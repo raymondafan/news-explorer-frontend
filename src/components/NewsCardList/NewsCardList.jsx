@@ -2,13 +2,14 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const NewsCardList = ({
   newsCardItems,
   isLoading,
   isNotFound,
   onSaveArticle,
   isLoggedIn,
+  shouldResetVisibleCount,
 }) => {
   const [visibleCount, setVisibleCount] = useState(3);
   const handleShowMore = () => {
@@ -16,6 +17,11 @@ const NewsCardList = ({
       return count + 3;
     });
   };
+  useEffect(() => {
+    if (shouldResetVisibleCount) {
+      setVisibleCount(3);
+    }
+  }, [shouldResetVisibleCount]);
 
   return (
     <section className="news-card-list">

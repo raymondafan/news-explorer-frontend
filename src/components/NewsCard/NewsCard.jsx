@@ -21,8 +21,12 @@ const NewsCard = ({ article, onSaveArticle, isLoggedIn }) => {
   };
 
   const handlSaveClick = (article) => {
-    setIsSaved((prev) => !prev);
-    onSaveArticle(article);
+    if (isLoggedIn) {
+      setIsSaved((prev) => !prev);
+      onSaveArticle(article);
+    } else {
+      return "";
+    }
   };
 
   // const getSaveButtonClass = () => {

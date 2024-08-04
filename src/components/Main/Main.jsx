@@ -8,6 +8,7 @@ const Main = ({
   isSearchInitiated,
   onSaveArticle,
   isLoggedIn,
+  shouldResetVisibleCount,
 }) => {
   return (
     <main className="main">
@@ -18,6 +19,7 @@ const Main = ({
           isNotFound={isNotFound}
           onSaveArticle={onSaveArticle}
           isLoggedIn={isLoggedIn}
+          shouldResetVisibleCount={shouldResetVisibleCount}
         />
       )}
       <About />

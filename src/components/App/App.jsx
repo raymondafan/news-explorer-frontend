@@ -31,11 +31,13 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [shouldResetVisibleCount, setShouldResetVisibleCount] = useState(false);
   const navigate = useNavigate();
+
   const handleSigninModal = () => {
     setActiveModal("signin");
     setIsMenuOpen(false);
     setIsModalOpen(true);
   };
+
   const handleRegisterModal = () => {
     setActiveModal("signup");
   };
@@ -151,7 +153,7 @@ function App() {
   //     });
   // });
   // useEffect(() => {
-  //   // Reset search state when navigating back to the main page
+  //
   //   if (location.pathname === "/") {
   //     setNewsCardItems([]);
   //     setIsSearchInitiated(false);

@@ -32,16 +32,20 @@ const NewsCardList = ({
       ) : (
         <>
           <h2 className="news-card-list__header"> Search results</h2>
-          <div className="news-card-list__items">
+          <ul className="news-card-list__items">
             {newsCardItems.slice(0, visibleCount).map((article, index) => (
-              <NewsCard
-                key={index}
-                article={article}
-                onSaveArticle={onSaveArticle}
-                isLoggedIn={isLoggedIn}
-              />
+              <li className="news-card-list__item">
+                <article>
+                  <NewsCard
+                    key={index}
+                    article={article}
+                    onSaveArticle={onSaveArticle}
+                    isLoggedIn={isLoggedIn}
+                  />
+                </article>
+              </li>
             ))}
-          </div>
+          </ul>
           {visibleCount < newsCardItems.length && (
             <div className="news-card-list__button-container">
               <button

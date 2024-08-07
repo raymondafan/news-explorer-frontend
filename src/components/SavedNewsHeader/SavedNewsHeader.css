@@ -1,21 +1,21 @@
-.saved-news__header-container {
+.saved-news-header-container {
   padding: 40px 104px 56px;
 }
 
-.saved-news__header-title {
+.saved-news-header-title {
   margin: 0 0 28px;
   font-family: "roboto-400-regular";
   font-size: 18px;
   font-weight: 400;
   color: rgba(26, 27, 34, 0.5);
 }
-.saved-news__header-subtitle {
+.saved-news-header-subtitle {
   margin: 0 0 30px;
   font-family: "roboto-slab-400-regular";
   font-size: 30px;
   font-weight: 400;
 }
-.saved-news__header-keywords {
+.saved-news-header-keywords {
   margin: 0;
   font-size: 18px;
   font-family: "roboto-slab-400-regular";
@@ -24,23 +24,23 @@
 }
 
 @media screen and (max-width: 815px) {
-  .saved-news__header-title {
+  .saved-news-header-title {
     margin: 0 0 16px;
 
     font-size: 14px;
   }
-  .saved-news__header-container {
+  .saved-news-header-container {
     padding: 24px 40px 32px;
   }
-  .saved-news__header-subtitle {
+  .saved-news-header-subtitle {
     margin: 0 0 16px;
   }
 }
 @media screen and (max-width: 610px) {
-  .saved-news__header-container {
+  .saved-news-header-container {
     padding: 8px 16px 32px;
   }
-  .saved-news__header-subtitle {
+  .saved-news-header-subtitle {
     margin: 0 0 50px;
   }
 }

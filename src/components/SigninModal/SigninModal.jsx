@@ -7,12 +7,12 @@ const SigninModal = ({
   activeModal,
   onSecondButtonClick,
   onSubmitButtonClick,
-  isLoading,
   onSubmitButtonClickMobile,
+  isLoading,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  console.log("SigninModal Props:", { isLoading });
   useEffect(() => {
     if (isOpen) {
       setEmail("");
@@ -30,6 +30,14 @@ const SigninModal = ({
     e.preventDefault();
     onSubmitButtonClick({ email, password });
   };
+  console.log("SigninModal Props:", {
+    isOpen,
+    onClose,
+    activeModal,
+    onSecondButtonClick,
+    onSubmitButtonClick,
+    isLoading,
+  });
   return (
     <ModalWithForm
       onSubmit={handleSubmit}
@@ -54,6 +62,7 @@ const SigninModal = ({
           name="email"
           value={email}
           onChange={handleEmail}
+          required
         />
       </label>
       <label className="modal__label-bottom">
@@ -65,6 +74,7 @@ const SigninModal = ({
           name="Password"
           value={password}
           onChange={handlePassword}
+          required
         />
       </label>
     </ModalWithForm>

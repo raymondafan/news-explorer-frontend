@@ -19,6 +19,7 @@
 .news-card__image {
   height: 272px;
   border-radius: 15px 15px 0px 0px;
+  object-fit: cover;
 }
 
 .news-card__save-button {

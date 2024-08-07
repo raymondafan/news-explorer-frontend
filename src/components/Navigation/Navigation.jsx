@@ -5,8 +5,8 @@ import hamburgerMenu from "../../assets/menu.svg";
 import hamburgerMenuBlack from "../../assets/menublack.svg";
 import closeButton from "../../assets/closebutton.svg";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+
 const Navigation = ({
   onSigninModal,
   isLoggedIn,
@@ -30,26 +30,24 @@ const Navigation = ({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const handleEscKey = (e) => {
-    console.log("handleEscKey");
     if (e.key === "Escape") {
       return onCloseMenu();
     }
   };
+
   useEffect(() => {
-    console.log("useEffect");
     const handleOutsideClick = (e) => {
-      console.log("something");
-      console.log(e.target.closest(".modal"));
       if (!e.target.closest(".nav")) {
         return onCloseMenu();
       }
     };
-    console.log(isMenuOpen);
+
     if (!isMenuOpen) {
       return;
     }
-    console.log("useeffect2");
+
     document.addEventListener("mousedown", handleOutsideClick);
     document.addEventListener("keydown", handleEscKey);
     return () => {
@@ -113,7 +111,14 @@ const Navigation = ({
 
         {!isSmallScreen && (
           <div className="nav__user-container">
-            <NavLink to="/" className="nav__button-home">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "nav__button-home nav__button--active"
+                  : "nav__button-home"
+              }
+            >
               Home
             </NavLink>
 
@@ -127,7 +132,14 @@ const Navigation = ({
               </button>
             ) : (
               <div className="nav__signin-container">
-                <NavLink to="/saved-news" className="nav__saved-news">
+                <NavLink
+                  to="/saved-news"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__saved-news nav__button--active"
+                      : "nav__saved-news"
+                  }
+                >
                   Saved articles
                 </NavLink>
                 <button
@@ -153,13 +165,25 @@ const Navigation = ({
           {isMenuOpen && page === "saved-news" ? (
             <NavLink
               to="/"
-              className="nav__button-home-white"
+              className={({ isActive }) =>
+                isActive
+                  ? "nav__button-home-white nav__button--active"
+                  : "nav__button-home-white"
+              }
               onClick={onCloseMenu}
             >
               Home
             </NavLink>
           ) : (
-            <NavLink to="/" className="nav__button-home" onClick={onCloseMenu}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "nav__button-home nav__button--active"
+                  : "nav__button-home"
+              }
+              onClick={onCloseMenu}
+            >
               Home
             </NavLink>
           )}
@@ -178,7 +202,11 @@ const Navigation = ({
               {isMenuOpen && page === "saved-news" ? (
                 <NavLink
                   to="/saved-news"
-                  className="nav__saved-news__white"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__saved-news__white nav__button--active"
+                      : "nav__saved-news__white"
+                  }
                   onClick={onCloseMenu}
                 >
                   Saved articles
@@ -186,7 +214,11 @@ const Navigation = ({
               ) : (
                 <NavLink
                   to="/saved-news"
-                  className="nav__saved-news"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__saved-news nav__button--active"
+                      : "nav__saved-news"
+                  }
                   onClick={onCloseMenu}
                 >
                   Saved articles
@@ -223,4 +255,5 @@ const Navigation = ({
     </nav>
   );
 };
+
 export default Navigation;

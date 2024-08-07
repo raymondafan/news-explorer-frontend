@@ -30,6 +30,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [shouldResetVisibleCount, setShouldResetVisibleCount] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSigninModal = () => {
@@ -58,7 +59,9 @@ function App() {
       return handleCloseModal();
     }
   };
+
   const handleSignInModalSubmit = (user) => {
+    setIsLoading(true);
     auth
       .signIn(user.email, user.password)
       .then((data) => {
@@ -78,6 +81,9 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -260,6 +266,7 @@ function App() {
               onSecondButtonClick={handleRegisterModal}
               activeModal={activeModal}
               onSubmitButtonClick={handleSignInModalSubmit}
+              isLoading={isLoading}
             />
           )}
           {activeModal === "signup" && (

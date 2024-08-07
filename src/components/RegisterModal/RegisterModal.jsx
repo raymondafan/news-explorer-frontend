@@ -54,6 +54,7 @@ const RegisterModal = ({
           name="email"
           value={email}
           onChange={handleEmail}
+          required
         />
       </label>
       <label className="modal__label">
@@ -67,6 +68,7 @@ const RegisterModal = ({
           onChange={handlePassword}
           minLength="1"
           maxLength="30"
+          required
         />
       </label>
       <label className="modal__label-bottom">
@@ -78,6 +80,7 @@ const RegisterModal = ({
           name="username"
           value={username}
           onChange={handleUsername}
+          required
         />
       </label>
     </ModalWithForm>

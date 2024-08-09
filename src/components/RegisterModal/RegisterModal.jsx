@@ -13,13 +13,28 @@ const RegisterModal = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && !emailRegex.test(email)) {
+      setIsActive(false);
+    } else if (email && password && username) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [email, password, username]);
+
   useEffect(() => {
     if (isOpen) {
       setEmail("");
       setPassword("");
       setUsername("");
+      setIsActive(false);
     }
   }, [isOpen]);
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -33,9 +48,11 @@ const RegisterModal = ({
     e.preventDefault();
     onSubmitButtonClick({ email, password, username });
   };
+
   return (
     <ModalWithForm
       onSubmit={handleSubmit}
+      onSubmitButtonClick={onSubmitButtonClick}
       onClose={onClose}
       name="signup"
       title="Sign up"
@@ -44,6 +61,7 @@ const RegisterModal = ({
       activeModal={activeModal}
       onSecondButtonClick={onSecondButtonClick}
       secondButtonText={activeModal === "signup" ? "  Sign In" : "  Sign Up"}
+      isActive={isActive}
     >
       <label className="modal__label">
         Email

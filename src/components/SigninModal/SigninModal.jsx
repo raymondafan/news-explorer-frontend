@@ -12,13 +12,26 @@ const SigninModal = ({
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && !emailRegex.test(email)) {
+      setIsActive(false);
+    } else if (email && password) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [email, password]);
   console.log("SigninModal Props:", { isLoading });
   useEffect(() => {
     if (isOpen) {
       setEmail("");
       setPassword("");
+      setIsActive(false);
     }
   }, [isOpen]);
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -30,14 +43,7 @@ const SigninModal = ({
     e.preventDefault();
     onSubmitButtonClick({ email, password });
   };
-  console.log("SigninModal Props:", {
-    isOpen,
-    onClose,
-    activeModal,
-    onSecondButtonClick,
-    onSubmitButtonClick,
-    isLoading,
-  });
+
   return (
     <ModalWithForm
       onSubmit={handleSubmit}
@@ -52,6 +58,7 @@ const SigninModal = ({
       onSubmitButtonClickMobile={onSubmitButtonClickMobile}
       activeModal={activeModal}
       secondButtonText={activeModal === "signup" ? "  Sign In" : "  Sign Up"}
+      isActive={isActive}
     >
       <label className="modal__label">
         Email

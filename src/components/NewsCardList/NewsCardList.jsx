@@ -34,7 +34,7 @@ const NewsCardList = ({
           <h2 className="news-card-list__header"> Search results</h2>
           <ul className="news-card-list__items">
             {newsCardItems.slice(0, visibleCount).map((article, index) => (
-              <li className="news-card-list__item">
+              <li className="news-card-list__item" key={index}>
                 <article>
                   <NewsCard
                     key={index}

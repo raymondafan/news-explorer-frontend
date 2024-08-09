@@ -48,16 +48,17 @@
   cursor: pointer;
   color: #ffffff;
   transition: 0.25s ease-in-out;
-  opacity: 100%;
+  opacity: 1;
   font-family: "roboto-500";
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
 }
-
-.search-form__button:hover {
-  opacity: 1;
-
+.search-form__button-clicked {
+  background: #2a65cc;
+  transition: none;
+}
+.search-form__button:not(.search-form__button-clicked):hover {
   background-color: rgba(52, 126, 255, 1);
 }
 

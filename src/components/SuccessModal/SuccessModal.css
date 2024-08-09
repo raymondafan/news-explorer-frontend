@@ -1,0 +1,77 @@
+.success-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s linear 0.5s, opacity 0.5s linear;
+}
+
+.success-modal_open {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility delay 0.5s linear 0.5s, opacity 0.5s linear;
+}
+.success-modal__close-button {
+  background: transparent url(/src/assets/closebutton.svg);
+  height: 40px;
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  top: -45px;
+  right: -45px;
+  position: absolute;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+  background-size: cover;
+}
+.success-modal__message {
+  font-family: "roboto-900";
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 14px;
+}
+.success-modal__close-button:hover {
+  opacity: 60%;
+}
+.success-modal__container {
+  background-color: white;
+  max-width: 360px;
+  width: 100%;
+  border-radius: 16px;
+  position: relative;
+  padding: 43px 36px 51px;
+}
+
+.success-modal__signin-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #2f71e5;
+  font-family: "inter-400-regular";
+  font-size: 14px;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+  padding: 0;
+}
+@media screen and (max-width: 610px) {
+  .success-modal__close-button {
+    right: 22px;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+  }
+  .success-modal {
+    padding-top: 56px;
+  }
+  .success-modal__container {
+    padding: 16px;
+  }
+}

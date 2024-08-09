@@ -16,6 +16,7 @@ import { handleToken, removeToken } from "../../utils/token";
 
 import newsApi from "../../utils/newsApi";
 import api from "../../utils/api";
+import SuccessModal from "../SuccessModal/SuccessModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -86,7 +87,30 @@ function App() {
         setIsLoading(false);
       });
   };
-
+  const handleRegisterModalSubmit = (user) => {
+    setIsLoading(true);
+    auth
+      .signUp(user.email, user.password, user.username)
+      .then((data) => {
+        if (data.token) {
+          handleToken(data.token);
+          return auth.checkToken(getToken());
+        } else {
+          throw new Error("No token received");
+        }
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsMenuOpen(false);
+        setActiveModal("success");
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
   const handleLogOutSubmit = (user) => {
     setCurrentUser({});
     removeToken(user);
@@ -176,7 +200,7 @@ function App() {
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (e.target.classList.contains("modal")) {
+      if (e.target.classList.contains("modal" && "success-modal")) {
         return handleCloseModal();
       }
     };
@@ -272,7 +296,17 @@ function App() {
           {activeModal === "signup" && (
             <RegisterModal
               isOpen={true}
+              isLoading={isLoading}
               handleRegisterModal={handleRegisterModal}
+              onClose={handleCloseModal}
+              onSubmitButtonClick={handleRegisterModalSubmit}
+              onSecondButtonClick={handleSigninModal}
+              activeModal={activeModal}
+            />
+          )}
+          {activeModal === "success" && (
+            <SuccessModal
+              isOpen={true}
               onClose={handleCloseModal}
               onSecondButtonClick={handleSigninModal}
               activeModal={activeModal}

@@ -1,9 +1,16 @@
 import { useState } from "react";
-import Preloader from "../Preloader/Preloader";
+
 import "./SearchForm.css";
 const SearchForm = ({ onSearch }) => {
   const [query, setQuery] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
 
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 100);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
@@ -11,6 +18,7 @@ const SearchForm = ({ onSearch }) => {
     } else {
       alert("Please enter a keyword");
     }
+    // setIsClicked(false);
   };
 
   return (
@@ -30,7 +38,13 @@ const SearchForm = ({ onSearch }) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="search-form__button" type="submit">
+          <button
+            className={`search-form__button ${
+              isClicked ? "search-form__button-clicked" : ""
+            }`}
+            type="submit"
+            onClick={handleClick}
+          >
             Search
           </button>
         </div>

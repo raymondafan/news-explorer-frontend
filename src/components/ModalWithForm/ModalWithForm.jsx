@@ -1,4 +1,5 @@
 import "./ModalWithForm.css";
+
 const ModalWithForm = ({
   children,
   title,
@@ -9,6 +10,7 @@ const ModalWithForm = ({
   onSecondButtonClick,
   onClose,
   isOpen,
+  isActive,
 }) => {
   return (
     <div className={`modal ${isOpen ? "modal_open" : ""}`}>
@@ -23,12 +25,15 @@ const ModalWithForm = ({
           {children}
           <div className="modal__button-container">
             <button
-              className="modal__button"
+              className={`modal__button ${
+                !isActive ? "modal__button-disabled" : ""
+              }`}
               type="submit"
-              disabled={isLoading}
+              disabled={isLoading || !isActive}
             >
               {buttonText}
             </button>
+
             <div className="modal__button-wrapper">
               <div className="modal__button-text">or</div>
               {secondButtonText && (

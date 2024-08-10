@@ -200,20 +200,23 @@ function App() {
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (e.target.classList.contains("modal" && "success-modal")) {
-        return handleCloseModal();
+      if (
+        e.target.classList.contains("modal") ||
+        e.target.classList.contains("success-modal")
+      ) {
+        handleCloseModal();
       }
     };
-    if (!activeModal) {
-      return;
+    if (activeModal) {
+      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("keydown", handleEscKey);
     }
-    document.addEventListener("mousedown", handleOutsideClick);
-    document.addEventListener("keydown", handleEscKey);
+
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscKey);
     };
-  });
+  }, [activeModal]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

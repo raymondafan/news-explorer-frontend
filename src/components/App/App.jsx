@@ -154,42 +154,7 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
-    // api
-    //   .getItems(query)
-    //   .then((data) => {
-    //     console.log("API response:", data);
-    //     const articles = data[0].articles;
-    //     if (articles.length === 0) {
-    //       setIsNotFound(true);
-    //     } else {
-    //       setIsNotFound(false);
-    //     }
-    //     setNewsCardItems(articles);
-    //     setIsLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     setIsLoading(false);
-    //   });
   };
-  // useEffect(() => {
-  //   api
-  //     .getItems("latest")
-  //     .then((data) => {
-  //       setNewsCardItems(data.articles);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // });
-  // useEffect(() => {
-  //
-  //   if (location.pathname === "/") {
-  //     setNewsCardItems([]);
-  //     setIsSearchInitiated(false);
-  //     setIsNotFound(false);
-  //   }
-  // }, [location.pathname]);
 
   useEffect(() => {
     api.getItems().then((data) => {
@@ -217,6 +182,7 @@ function App() {
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [activeModal]);
+  //activeModal is included as a dependency because the effect should only run when the activeModal state changes (when a modal is opened or closed).
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

@@ -44,17 +44,15 @@ const Navigation = ({
       }
     };
 
-    if (!isMenuOpen) {
-      return;
+    if (isMenuOpen) {
     }
-
     document.addEventListener("mousedown", handleOutsideClick);
     document.addEventListener("keydown", handleEscKey);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscKey);
     };
-  });
+  }, [isMenuOpen]);
 
   return (
     <nav className="nav">

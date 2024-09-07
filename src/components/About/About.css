@@ -27,6 +27,13 @@
   font-weight: 400;
   padding: 0 0 34px 0;
 }
+.about__description-2 {
+  margin: 0;
+  max-width: 600px;
+  font-family: "roboto-400-regular";
+  font-size: 18px;
+  font-weight: 400;
+}
 .extra-space {
   margin-bottom: 20px;
 }

@@ -8,12 +8,19 @@ const About = ({}) => {
         <div className="about__content">
           <h2 className="about__title">About the author</h2>
           <p className="about__description">
-            This block describes the project author. Here you should indicate
-            your name, what you do, and which development technologies you know.{" "}
+            I'm Raymond Afan, a web developer with expertise in creating dynamic
+            and responsive applications using technologies like JavaScript,
+            React, Node.js, and MongoDB. Through my experience with TripleTen,
+            I've honed my skills in full-stack development, problem-solving, and
+            project management, working on real-world projects that required
+            implementing best practices in software engineering.
           </p>
-          <p className="about__description">
-            You can also talk about your experience with TripleTen, what you
-            learned there, and how you can help potential customers.
+          <p className="about__description-2">
+            At TripleTen, I learned to build efficient, user-friendly web
+            applications and gained hands-on experience with modern development
+            tools and frameworks. I am passionate about crafting clean,
+            maintainable code and helping clients turn their ideas into reality
+            through innovative digital solutions.
           </p>
         </div>
       </div>

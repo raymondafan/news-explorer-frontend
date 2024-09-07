@@ -66,7 +66,7 @@ The live demo is temporarily unavailable due to expired cloud hosting. Please ch
 
 ## **Links**
 
-- [Link to the FRONTEND](https://github.com/raymondafan/news-explorer-frontend)
+- [Link to the FRONTEND](https://github.com/raymondafan/news-explorer-frontend/tree/stage-1-1-markup?tab=readme-ov-file)
 
 ## **System Requirements**
 

@@ -1,4 +1,4 @@
-# WTWR (What to Wear?): Front End
+# NewsExplorer: Front End
 
 ### Table of Contents
 

@@ -1,0 +1,12 @@
+.header {
+  margin: 0;
+  background-image: url(../../assets/headerbackground.jpg);
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+}
+.header_saved-news {
+  color: black;
+  background-image: none;
+  height: auto;
+}

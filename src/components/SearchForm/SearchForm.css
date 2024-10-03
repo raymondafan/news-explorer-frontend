@@ -1,0 +1,108 @@
+.search-form {
+  padding: 80px 104px;
+}
+.search-form__subHeader {
+  font-family: "roboto-400-regular";
+  color: #ffffff;
+  font-size: 18px;
+  margin: 0;
+  padding: 32px 0 80px;
+  font-weight: 400;
+}
+.search-form__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto 0;
+  max-width: 608px;
+  position: relative;
+}
+.search-form__header {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  font-family: "roboto-slab-400-regular";
+  color: #ffffff;
+  font-weight: 400;
+}
+.search-form__input {
+  padding: 21px 24px;
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  font-family: "roboto-400-regular";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  box-sizing: border-box;
+}
+.search-form__button {
+  padding: 20px 56px;
+  border-radius: 50px;
+  border: none;
+  position: absolute;
+  background: #2f71e5;
+  right: 0px;
+  top: 0;
+  cursor: pointer;
+  color: #ffffff;
+  transition: 0.25s ease-in-out;
+  opacity: 1;
+  font-family: "roboto-500";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+.search-form__button-clicked {
+  background: #2a65cc;
+  transition: none;
+}
+.search-form__button:not(.search-form__button-clicked):hover {
+  background-color: rgba(52, 126, 255, 1);
+}
+
+.cards {
+  max-width: 35px;
+}
+.search-form__bar {
+  position: relative;
+  align-self: stretch;
+}
+@media screen and (max-width: 815px) {
+  .search-form__header {
+    font-size: 36px;
+  }
+
+  .search-form__container {
+    max-width: 452px;
+  }
+  .search-form {
+    padding: 38px 40px 48px;
+  }
+  .search-form__input {
+    padding: 17px 24px;
+  }
+  .search-form__button {
+    padding: 16px 52px;
+  }
+  .search-form__subHeader {
+    padding: 16px 0 48px;
+  }
+}
+@media screen and (max-width: 610px) {
+  .search-form {
+    padding: 32px 16px 30px;
+  }
+  .search-form__button {
+    position: unset;
+    width: 100%;
+    margin-top: 16px;
+  }
+  .search-form__subHeader {
+    padding: 16px 0 122px;
+  }
+  .search-form__input {
+    padding: 17px;
+  }
+}

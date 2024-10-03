@@ -1,0 +1,23 @@
+.saved-news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-gap: 16px;
+  justify-content: center;
+  padding: 0;
+  padding: 62px 106px;
+  background: rgba(245, 246, 247, 1);
+}
+@media screen and (max-width: 815px) {
+  .saved-news-list {
+    grid-template-columns: repeat(auto-fit, 224px);
+    grid-gap: 8px;
+    padding: 32px 40px;
+  }
+}
+@media screen and (max-width: 610px) {
+  .saved-news-list {
+    margin: 0 0 16px;
+    grid-template-columns: repeat(auto-fit, 288px);
+    grid-gap: 10px;
+  }
+}
